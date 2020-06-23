@@ -1,0 +1,37 @@
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Register Here</h2>
+                
+                <form #userSignupForm = "ngForm">
+                    <h6>{{userSignupForm.value | json }}</h6>
+                    <div class="input-group">
+                        <input class="input--style-3 form-control" type="email" placeholder="Email" name="email" ngModel>
+                    </div>
+
+                    <div class="input-group">
+                        <input class="input--style-3 form-control" type="text" placeholder="Full name" name="full-name" ngModel>
+                    </div>
+
+                    <div class="input-group">
+                        <input class="input--style-3 form-control" type="password" placeholder="Password" name="password" ngModel>
+                    </div>
+                    
+                    <div class="input-group">
+                            <select class="custom-select" name="usertype">
+                                <option disabled="disabled" selected="selected">User type</option>
+                                <option *ngFor="let eachElement of userTypes">{{ eachElement }}</option>
+                            </select>
+                            <div class="select-dropdown"></div>
+                    </div>
+
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
