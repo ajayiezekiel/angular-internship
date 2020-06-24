@@ -1,30 +1,69 @@
 <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
     <div class="wrapper wrapper--w780">
+        <h5>{{feedback}}</h5>
         <div class="card card-3">
-            <div class="card-heading"></div>
+            <div class="card-heading"> </div>
             <div class="card-body">
                 <h2 class="title">Register Here</h2>
-                
-                <form #userSignupForm = "ngForm">
-                    <h6>{{userSignupForm.value | json }}</h6>
+                <h6>{{userSignupForm.value | json }}</h6>
+                <form #userSignupForm = "ngForm" novalidate (ngSubmit)="onSubmit()"> 
                     <div class="input-group">
-                        <input class="input--style-3 form-control" type="email" placeholder="Email" name="email" ngModel>
+                        <input class="input--style-3" 
+                            required
+                            #email='ngModel' 
+                            pattern= "^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$"
+                            [class.is-valid]= "email.invalid && email.touched" 
+                            type="email" 
+                            placeholder="Email" 
+                            name="email" 
+                            [(ngModel)] = scrumUserModel.email>
+
+                        <div *ngIf="email.errors">
+                            <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+                            <small class="text-danger" *ngIf="email.errors.pattern">Email must be a valid email</small>
+                        </div>
                     </div>
 
                     <div class="input-group">
-                        <input class="input--style-3 form-control" type="text" placeholder="Full name" name="full-name" ngModel>
+                        <input class="input--style-3" 
+                            required
+                            #fullname='ngModel' 
+                            [class.is-valid]= "fullname.invalid && fullname.touched" 
+                            type="text" 
+                            placeholder="Full name" 
+                            name="fullname" 
+                            [(ngModel)] = scrumUserModel.fullname>
+
+                        <div *ngIf="fullname.errors">
+                            <small class="text-danger" *ngIf="fullname.errors.required">Full name is required</small>
+                        </div>
                     </div>
 
                     <div class="input-group">
-                        <input class="input--style-3 form-control" type="password" placeholder="Password" name="password" ngModel>
+                        <input class="input--style-3" 
+                            required
+                            #password='ngModel' 
+                            pattern="^(?=.*[[\]{};:=>_+^#$.,@!%\)\(*?&])(?=.*\d)[A-Za-z\d[\]{}\)\(;:=>_+^#$@.,!%*?&].{8,}$"
+                            [class.is-valid]= "password.invalid && password.touched" 
+                            type="password" 
+                            placeholder="Password" 
+                            name="password" 
+                            [(ngModel)] = scrumUserModel.password>
+                        
+                        <div *ngIf="password.errors">
+                            <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+                            <small class="text-danger" *ngIf="password.errors.pattern">Password must be at least 8 characters containing at least a number and a special character</small>
+                        </div>
                     </div>
                     
                     <div class="input-group">
-                            <select class="custom-select" name="usertype">
+                            <select class="custom-select input--style-3" #type='ngModel' [class.is-valid]= "type.invalid && type.touched" name="type" [(ngModel)] = scrumUserModel.type>
                                 <option disabled="disabled" selected="selected">User type</option>
                                 <option *ngFor="let eachElement of userTypes">{{ eachElement }}</option>
                             </select>
-                            <div class="select-dropdown"></div>
+                            <div *ngIf="type.errors">
+                                <small class="text-danger" *ngIf="type.errors.required">User Type is required</small>
+                            </div>
                     </div>
 
                     <div class="p-t-10">

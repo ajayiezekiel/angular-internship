@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Scrumuser } from '../scrumuser';
+import { ScrumdataService } from '../scrumdata.service';
+
 
 @Component({
   selector: 'app-signup',
@@ -6,15 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-    
-  }
-  userTypes = ['Owner', 'Developer'];
   
+  public scrumUserModel: Scrumuser;
 
+  constructor(private _scrumdataService: ScrumdataService) { }
+
+  ngOnInit() {
+    this.scrumUserModel = new Scrumuser("johndoe@linuxjobber.com","John Doe", "johndoe", "Developer");
+  }
+
+  userTypes = ['Owner', 'Developer'];
+  feedback = ''
+
+  onSubmit() {
+    console.log(this.scrumUserModel);
+    this._scrumdataService.signup(this.scrumUserModel).subscribe(
+      data => {
+        console.log('SUCCESS!', data);
+        this.feedback = 'Account created successfully';
+      },
+      error => {
+        console.log('ERROR'!, error);
+        this.feedback = 'Signup failed';
+      }
+    )
+  }
+  
 }

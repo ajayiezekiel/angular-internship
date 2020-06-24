@@ -79,6 +79,11 @@ h6 {
   color: white;
 }
 
+h5 {
+  color: white;
+  margin-bottom: 10px;
+}
+
 
 /* ==========================================================================
    #BACKGROUND
@@ -379,6 +384,22 @@ input {
     font-weight: 400;
     margin-bottom: 36px;
   }
+
+input:invalid {
+    border-bottom: 2px solid red;
+  }
+  
+input:valid {
+    border-bottom: 2px solid green;
+  }
+
+select:valid {
+  border: 2px solid green;
+}
+
+.input--style-3 {
+  width: 100%;
+}
 
 
   
