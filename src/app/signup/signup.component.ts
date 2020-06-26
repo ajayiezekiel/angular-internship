@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   constructor(private _scrumdataService: ScrumdataService) { }
 
   ngOnInit() {
-    this.scrumUserModel = new Scrumuser("johndoe@linuxjobber.com","John Doe", "johndoe", "Developer");
+    this.scrumUserModel = new Scrumuser("ajayiezekiel@linuxjobber.com","Ezekiel Ajayi", "ezekiel", "Developer");
   }
 
   userTypes = ['Owner', 'Developer'];
