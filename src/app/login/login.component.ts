@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.scrumUserLoginData = { "email": "ajayiezekiel9000@gmail.com", "password": "developer9?", "projname": "Angular" }
+  
   }
 
   feedback = ''
