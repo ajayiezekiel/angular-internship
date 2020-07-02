@@ -7,6 +7,8 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ScrumboardComponent } from './scrumboard/scrumboard.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -14,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ScrumboardComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

@@ -78,6 +78,12 @@
   h6 {
     color: white;
   }
+
+  h5 {
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+  }
   
   
   /* ==========================================================================

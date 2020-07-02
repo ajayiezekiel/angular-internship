@@ -1,0 +1,14 @@
+a {
+    float: right;
+    margin: 5px;
+}
+
+.btn-outline-light {
+    outline-color:black;
+    color: orange;
+    border: solid;
+}
+
+.btn-primary {
+    background-color: #a18cd1;
+}

@@ -1,60 +1,41 @@
 <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
     <div class="wrapper wrapper--w780">
+        <h5>{{feedback}}</h5>
         <div class="card card-3">
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">Log In Here</h2>
                 <h6> {{userLoginForm.value | json }} </h6>
-                <form #userLoginForm = "ngForm">
+                <form #userLoginForm = "ngForm" novalidate (ngSubmit)="onLoginSubmit()">
                     <div class="input-group">
                         <input class="input--style-3" 
-                            required
-                            #email='ngModel' 
-                            pattern= "^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$"
-                            [class.is-valid]= "email.invalid && email.touched" 
                             type="email" 
                             placeholder="Email" 
                             name="email" 
-                            ngModel>
-
-                        <div *ngIf="email.errors">
-                            <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
-                            <small class="text-danger" *ngIf="email.errors.pattern">Email must be a valid email</small>
-                        </div>
+                            [(ngModel)]= scrumUserLoginData.email>
                     </div>
 
                     <div class="input-group">
                         <input class="input--style-3" 
-                            required
-                            #password='ngModel' 
-                            pattern="^(?=.*[[\]{};:=>_+^#$.,@!%\)\(*?&])(?=.*\d)[A-Za-z\d[\]{}\)\(;:=>_+^#$@.,!%*?&].{8,}$"
-                            [class.is-valid]= "password.invalid && password.touched" 
                             type="password" 
                             placeholder="Password" 
                             name="password" 
-                            ngModel>
-
-                        <div *ngIf="password.errors">
-                            <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
-                            <small class="text-danger" *ngIf="password.errors.pattern">Password must be at least 8 characters containing at least a number and a special character</small>
-                        </div>
+                            [(ngModel)]= scrumUserLoginData.password>
                     </div>
 
                     <div class="input-group">
                         <input class="input--style-3" 
-                            #projectname='ngModel' 
-                            [class.is-valid]= "projectname.invalid && projectname.touched" 
                             type="text" 
                             placeholder="Project name" 
-                            name="projectname" 
-                            ngModel>
-                        <div *ngIf="projectname.errors">
-                            <small class="text-danger" *ngIf="projectname.errors.required">Project name is required</small>
-                        </div>
+                            name="projname" 
+                            [(ngModel)]= scrumUserLoginData.projname>
                     </div>
 
                     <div class="p-t-10">
-                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                        <button class="btn btn--pill btn--green" type="submit">Log In</button>
+                    </div>
+                    <div class="p-t-10">
+                        <p>Don't have an account? <a routerLink='/signup'>signup here</a></p>
                     </div>
                 </form>
             </div>

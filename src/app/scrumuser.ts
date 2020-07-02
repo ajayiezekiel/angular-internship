@@ -4,7 +4,8 @@ export class Scrumuser {
         public email: string,
         public fullname: string,
         public password: string,
-        public type: string
+        public type: string,
+        public projname: string
     ) {}
 
 }
