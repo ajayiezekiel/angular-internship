@@ -1,1 +1,51 @@
-<p>This is the scrumboard</p>
+<table *ngFor="let participant of _participants" class="table">
+
+    <hr>
+    <h6>{{participant['user']['nickname']}}</h6>
+
+    <tr>
+        <th>Tasks For The Week</th>
+        <th>Tasks For The Day</th>
+        <th>Verify</th>
+        <th>Done</th>
+    </tr>
+
+    <tr>
+        <td>
+            <div *ngFor="let goal of participant['scrumgoal_set']">
+                <div *ngIf="goal['status'] == 0 && goal['user'] == participant['id']">
+                    {{ goal['name'] }} <br>
+                    {{ goal['id'] }}
+                    <p>status: {{ goal['status'] }}</p>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div *ngFor="let goal of participant['scrumgoal_set']">
+                <div *ngIf="goal['status'] == 1 && goal['user'] == participant['id']">
+                    {{ goal['name'] }} <br>
+                    {{ goal['id'] }}
+                    <p>status: {{ goal['status'] }}</p>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div *ngFor="let goal of participant['scrumgoal_set']">
+                <div *ngIf="goal['status'] == 2 && goal['user'] == participant['id']">
+                    {{ goal['name'] }} <br>
+                    {{ goal['id'] }}
+                    <p>status: {{ goal['status'] }}</p>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div *ngFor="let goal of participant['scrumgoal_set']">
+                <div *ngIf="goal['status'] == 3 && goal['user'] == participant['id']">
+                    {{ goal['name'] }} <br>
+                    {{ goal['id'] }}
+                    <p>status: {{ goal['status'] }}</p>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

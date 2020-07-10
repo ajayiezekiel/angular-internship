@@ -28,12 +28,13 @@ export class LoginComponent implements OnInit {
         console.log('SUCCESS', data);
         this.feedback = 'Successfully Logged In'
         localStorage.setItem('token', data.token);
-        this._router.navigate(['/scrumboard']);
+        this._router.navigate(['/scrumboard', data['project_id']]);
       },
       error => {
         console.log('ERROR', error);
         this.feedback = 'Invalid Credentials'
       }
+      
     )
   }
 

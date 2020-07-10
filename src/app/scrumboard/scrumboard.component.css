@@ -1,6 +1,11 @@
-p {
+h6 {
     background-color: #a18cd1;
     color: white;
     padding: 10px;
-    text-align: center;
+    text-align: left;
+}
+
+p {
+    background-color:#fece8c;
+    color: grey;
 }
