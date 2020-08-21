@@ -8,4 +8,6 @@ h6 {
 p {
     background-color:#fece8c;
     color: grey;
+    text-align: center;
+    padding: 5px;
 }
